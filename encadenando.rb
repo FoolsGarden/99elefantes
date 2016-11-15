@@ -1,12 +1,20 @@
 # TODO: Refactoriza buscando elegancia 
 def shout_backwards(string)
-  string.upcase.reverse + "!!!"
+   string.upcase.reverse + "!!!"
 end
 
 
 # AYUDAME: Refactoriza buscando elegancia 
 def squared_primes(array)
-  array.find_all{|x| (2..x-1).select{|i| x % i == 0 }.count == 0 }.map{|p| p*p}
+  find_numbers = array.find_all do |num| 
+    range = (2..num-1)
+    selection = range.select do |divisible_num| 
+      num % divisible_num == 0
+    end
+    selection.count == 0 
+
+  end
+  find_numbers.map{|number| number*number}
 end
 
 # Driver code... no edites este texto. En la consola esto deberá imprimir puros trues
